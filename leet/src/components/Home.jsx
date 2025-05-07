@@ -20,7 +20,7 @@ export default function CompilerLandingPage() {
               <a href="#features" className="text-gray-600 hover:text-indigo-600 transition-colors">Features</a>
               <a href="#pricing" className="text-gray-600 hover:text-indigo-600 transition-colors">Pricing</a>
               <a href="/login" className="text-gray-600 hover:text-indigo-600 transition-colors">Join Us</a>
-              <a href="/login" className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors">
+              <a href="/compiler" className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors">
                 Try it Free
               </a>
             </div>
