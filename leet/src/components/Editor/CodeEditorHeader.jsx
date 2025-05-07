@@ -1,6 +1,6 @@
 import { Play, CheckCircle } from "lucide-react";
 
-export default function CodeEditorHeader({ language, setLanguage, onSubmit, onRun, loadingCompile, loadingSubmit }) {
+export default function CodeEditorHeader({ language, setLanguage, onSubmit,  loadingSubmit }) {
   
   return (
     <div className="flex items-center justify-between px-4 py-2 border-b border-gray-700">
@@ -16,13 +16,13 @@ export default function CodeEditorHeader({ language, setLanguage, onSubmit, onRu
         </select>
       </div>
       <div className="flex space-x-3">
-      <button
+      {/* <button
           onClick={onRun}
           disabled={loadingCompile}
           className={`px-4 py-1 rounded flex items-center ${loadingCompile ? "bg-gray-500" : "bg-green-600"} text-white`}
         >
           {loadingCompile ? "Running..." : <><Play size={16} className="mr-1" /> Run</>}
-        </button>
+        </button> */}
 
         <button
           onClick={onSubmit}

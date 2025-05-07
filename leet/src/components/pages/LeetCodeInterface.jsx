@@ -13,7 +13,7 @@ import { useParams } from "react-router-dom";
 export default function LeetCodeInterface() {
   const {id} = useParams();
   const [code, setCode] = useState("");
-  const [loadingCompile, setLoadingCompile] = useState(false);
+  // const [loadingCompile, setLoadingCompile] = useState(false);
   const [loadingSubmit, setLoadingSubmit] = useState(false);
   // const [input, setInput] = useState("");
   const [problemTab, setProblemTab] = useState("description");
@@ -52,82 +52,82 @@ export default function LeetCodeInterface() {
     resizingY.current = false;
   };
 
-  function getFunctionName(code) {
-    // For JavaScript and Python, we can simply extract the function name
-    const match = code.match(/function\s+([a-zA-Z0-9_]+)\s*\(/) || 
-                  code.match(/def\s+([a-zA-Z0-9_]+)\s*\(/) || 
-                  code.match(/const\s+([a-zA-Z0-9_]+)\s*=/) ||
-                  code.match(/([a-zA-Z0-9_]+)\s*=\s*\(/); // handle const function expressions in JS and Python
+  // function getFunctionName(code) {
+  //   // For JavaScript and Python, we can simply extract the function name
+  //   const match = code.match(/function\s+([a-zA-Z0-9_]+)\s*\(/) || 
+  //                 code.match(/def\s+([a-zA-Z0-9_]+)\s*\(/) || 
+  //                 code.match(/const\s+([a-zA-Z0-9_]+)\s*=/) ||
+  //                 code.match(/([a-zA-Z0-9_]+)\s*=\s*\(/); // handle const function expressions in JS and Python
   
-    return match ? match[1] : "unknownFunction";
-  }
+  //   return match ? match[1] : "unknownFunction";
+  // }
   
-  const handleCompile = async () => {
-    setLoadingCompile(true);
+  // const handleCompile = async () => {
+  //   setLoadingCompile(true);
   
-    try {
-      // Step 1: Fetch testcases
-      const { data } = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/questions/testcase/${id}`);
-      const { sampleTestCases } = data.testcase;
+  //   try {
+  //     // Step 1: Fetch testcases
+  //     const { data } = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/questions/testcase/${id}`);
+  //     const { sampleTestCases } = data.testcase;
   
-      // Just use the first sample test case for run
-      const testCase = sampleTestCases[0];
+  //     // Just use the first sample test case for run
+  //     const testCase = sampleTestCases[0];
   
-      // Step 2: Prepare the user's code and input
-      let wrappedCode;
+  //     // Step 2: Prepare the user's code and input
+  //     let wrappedCode;
   
-      if (language === "js") {
-        // For JavaScript, just ensure the function is called and result is logged
-        wrappedCode = `
-          ${code}
-          console.log(${getFunctionName(code)}(...${testCase.input}));
-        `;
-      } else if (language === "py") {
-        // For Python, we use print instead of console.log
-        wrappedCode = `
-          ${code}
-          print(${getFunctionName(code)}(*${testCase.input}));
-        `;
-      } else if (language === "cpp") {
-        // For C++, ensure that we output results with cout
-        wrappedCode = `
-          ${code}
-          std::cout << ${getFunctionName(code)}(${testCase.input}) << std::endl;
-        `;
-      } else {
-        // Unsupported language case
-        alert(`⚠️ Unsupported language: ${language}. Please choose a supported language.`);
-        setLoadingCompile(false);
-        return; // Exit the function if unsupported language is selected
-      }
+  //     if (language === "js") {
+  //       // For JavaScript, just ensure the function is called and result is logged
+  //       wrappedCode = `
+  //         ${code}
+  //         console.log(${getFunctionName(code)}(...${testCase.input}));
+  //       `;
+  //     } else if (language === "py") {
+  //       // For Python, we use print instead of console.log
+  //       wrappedCode = `
+  //         ${code}
+  //         print(${getFunctionName(code)}(*${testCase.input}));
+  //       `;
+  //     } else if (language === "cpp") {
+  //       // For C++, ensure that we output results with cout
+  //       wrappedCode = `
+  //         ${code}
+  //         std::cout << ${getFunctionName(code)}(${testCase.input}) << std::endl;
+  //       `;
+  //     } else {
+  //       // Unsupported language case
+  //       alert(`⚠️ Unsupported language: ${language}. Please choose a supported language.`);
+  //       setLoadingCompile(false);
+  //       return; // Exit the function if unsupported language is selected
+  //     }
   
-      // Step 3: Send the wrapped code to the backend for compilation
-      const compileRes = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/compile`,
-        {
-          code: wrappedCode,
-          language,  // Ensure that the correct language value is being passed
-          input: "" // we have embedded input directly in the code
-        }
-      );
+  //     // Step 3: Send the wrapped code to the backend for compilation
+  //     const compileRes = await axios.post(
+  //       `${import.meta.env.VITE_BACKEND_URL}/api/compile`,
+  //       {
+  //         code: wrappedCode,
+  //         language,  // Ensure that the correct language value is being passed
+  //         input: "" // we have embedded input directly in the code
+  //       }
+  //     );
   
-      const output = (compileRes.data.output || "").trim();
-      const expected = (testCase.expectedOutput || "").trim();
+  //     const output = (compileRes.data.output || "").trim();
+  //     const expected = (testCase.expectedOutput || "").trim();
   
-      // Ensure both output and expected output are serialized to strings and stripped of unnecessary whitespace
-      if (JSON.stringify(JSON.parse(output)) === JSON.stringify(JSON.parse(expected))) {
-        alert("✅ Output matches expected output!");
-      } else {
-        alert(`❌ Output mismatch!\nYour Output: ${output}\nExpected: ${expected}`);
-      }
+  //     // Ensure both output and expected output are serialized to strings and stripped of unnecessary whitespace
+  //     if (JSON.stringify(JSON.parse(output)) === JSON.stringify(JSON.parse(expected))) {
+  //       alert("✅ Output matches expected output!");
+  //     } else {
+  //       alert(`❌ Output mismatch!\nYour Output: ${output}\nExpected: ${expected}`);
+  //     }
   
-    } catch (error) {
-      console.error("Compile error:", error);
-      alert("An error occurred while compiling.");
-    } finally {
-      setLoadingCompile(false);
-    }
-  };
+  //   } catch (error) {
+  //     console.error("Compile error:", error);
+  //     alert("An error occurred while compiling.");
+  //   } finally {
+  //     setLoadingCompile(false);
+  //   }
+  // };
   
   
   // const cleanJSON = (str) => {
@@ -199,7 +199,7 @@ export default function LeetCodeInterface() {
         <div
           id="editor-right-panel"
           className="flex flex-col flex-1 overflow-hidden">
-          <CodeEditorHeader language={language} setLanguage={setLanguage} onSubmit={handleSubmit} onRun={handleCompile} loadingCompile={loadingCompile} loadingSubmit={loadingSubmit}/>
+          <CodeEditorHeader language={language} setLanguage={setLanguage} onSubmit={handleSubmit}  loadingSubmit={loadingSubmit}/>
 
           <div
             style={{ height: `${editorHeight}%` }}
