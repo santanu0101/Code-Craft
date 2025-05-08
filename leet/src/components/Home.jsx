@@ -110,24 +110,17 @@ export default function CompilerLandingPage() {
               </div>
               <pre className="text-green-400 font-mono text-sm overflow-hidden">
                 <code>
-                  {`// Hello, Code-craft Compile!
-const message = "Hello, World!";
-let i = 0;
+                  {`// Hello, Code-Craft Compile!
+const express = require('express');
+const app = express();
 
-function typeWriter() {
-  if (i < message.length) {
-    process.stdout.write(message[i]);
-    i++;
-    setTimeout(typeWriter, 150); 
-  } else {
-    console.log("\n🌍 Have a great day!");
-  }
-}
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
 
-console.clear();
-console.log("Typing your message...\n");
-typeWriter();
-`}
+app.listen(3000, () => {
+  console.log('Running on port 3000');
+});`}
                 </code>
               </pre>
             </div>
@@ -729,7 +722,7 @@ typeWriter();
           <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
             <div className="inline-flex rounded-md shadow">
               <a
-                href="#"
+                href="/login"
                 className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50"
               >
                 Get started
