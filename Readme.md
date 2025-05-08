@@ -148,11 +148,11 @@ Meet the people who made this project possible:
 
 | Name | Role |
 |------|------|
-| Alex Johnson | Lead Developer |
-| Maria Chen | Frontend Developer |
-| David Rodriguez | Full Stack Developer |
-| Sarah Patel | Backend Developer |
-| Marcus Lee | UI/UX Developer |
+| Santanu Raj | Lead Developer |
+| Aniket Dey | Frontend Developer |
+| Soham Goswami  | Full Stack Developer |
+| Sayani Ghosh | Backend Developer |
+| Suman Satra | UI/UX Developer |
 
 ## 📞 Contact
 For any questions or inquiries, please reach out to us through:
