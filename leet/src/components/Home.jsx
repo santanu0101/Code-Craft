@@ -137,7 +137,7 @@ app.listen(3000, () => {
               Everything you need to code with ease
             </p>
             <p className="max-w-xl mt-5 mx-auto text-xl text-gray-500">
-              Our online Node.js compiler provides all the tools you need to write, run, and debug your code effortlessly.
+              Our online compiler provides all the tools you need to write, run, and debug your code effortlessly.
             </p>
           </div>
 
@@ -240,7 +240,7 @@ app.listen(3000, () => {
                     <div className="flex-shrink-0">
                       <Check className="h-5 w-5 text-green-500" />
                     </div>
-                    <p className="ml-3 text-sm text-gray-700">Basic Node.js environment</p>
+                    <p className="ml-3 text-sm text-gray-700">Basic JS, Python, C++ environment</p>
                   </li>
                   <li className="flex items-start">
                     <div className="flex-shrink-0">
@@ -288,7 +288,7 @@ app.listen(3000, () => {
                     <div className="flex-shrink-0">
                       <Check className="h-5 w-5 text-green-500" />
                     </div>
-                    <p className="ml-3 text-sm text-gray-700">Advanced Node.js environment</p>
+                    <p className="ml-3 text-sm text-gray-700">Advanced JS, Python, C++ environment</p>
                   </li>
                   <li className="flex items-start">
                     <div className="flex-shrink-0">
@@ -543,7 +543,7 @@ app.listen(3000, () => {
               Meet the Developers
             </p>
             <p className="max-w-xl mt-5 mx-auto text-xl text-gray-500">
-              The team behind NodeCompile.
+              The team behind Compile.
             </p>
           </div>
 
@@ -717,7 +717,7 @@ app.listen(3000, () => {
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
           <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
             <span className="block">Ready to dive in?</span>
-            <span className="block text-indigo-200">Start using NodeCompile today.</span>
+            <span className="block text-indigo-200">Start using Compile today.</span>
           </h2>
           <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
             <div className="inline-flex rounded-md shadow">
