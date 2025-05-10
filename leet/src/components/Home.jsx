@@ -157,9 +157,9 @@ app.listen(3000, () => {
                 <div className="w-12 h-12 rounded-md bg-indigo-100 flex items-center justify-center mb-4">
                   <Terminal className="h-6 w-6 text-indigo-600" />
                 </div>
-                <h3 className="text-lg font-medium text-gray-900 mb-2">Full Node.js Support</h3>
+                <h3 className="text-lg font-medium text-gray-900 mb-2"> JS, Python, C++ Support</h3>
                 <p className="text-gray-500">
-                  Access the complete Node.js standard library and popular npm packages pre-installed and ready to use.
+                  Access the complete js, python, c++ standard and ready to use.
                 </p>
               </div>
 
